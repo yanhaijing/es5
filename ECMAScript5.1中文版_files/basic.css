@@ -1,0 +1,487 @@
+html {
+    padding:0 0 0 0;
+    margin:0 0 0 0;
+}
+body {
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 0 0 400px;
+    margin:32px 0 0 0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    font-family:arial,Hiragino Sans GB,宋体;
+}
+code.block {
+    border: solid 1px #ABCDF3;
+    background: rgb(247,250,254);
+    font-family:droid sans mono, consolas, monaco;
+    overflow:hidden;
+}
+h1,h2,h3,h4,h5,h6 {
+    color:#005A9C;
+    font-family:"Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft YaHei",sans-serif; 
+}
+p::before {
+    content:"　　";;
+}
+.note {
+    color:darkgreen
+}
+.note>p:nth-child(1):before {
+    content:"　　注：";
+}
+code.block
+{
+    white-space: pre;
+    margin-top:1em;
+    margin-bottom:1em;
+    margin-left:2em;
+    margin-right:2em;
+    padding:1em 1em 1em 1em;
+}
+
+ul,ol
+{
+    margin-top:1em;
+    margin-bottom:1em;
+    margin-left:1em;
+    margin-right:1em;
+}
+.block
+{
+    display: block;
+}
+table
+{
+    border-collapse: collapse;
+    border: solid 1px black;
+}
+table td, table th
+{
+    border: solid 1px black;
+}
+figure.table figcaption::before
+{
+    counter-increment: table;
+    content: "表" counter(table) " —— ";
+}
+figure
+{
+    text-align: center;
+}
+figure table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+body
+{
+    counter-reset: level1 0 table 0 annex 0 note 0;
+}
+h1.chapter
+{
+    counter-reset: level2 0;
+}
+h2.chapter
+{
+    counter-reset: level3 0;
+}
+h3.chapter
+{
+    counter-reset: level4 0;
+}
+h4.chapter
+{
+    counter-reset: level5 0;
+}
+h5.chapter
+{
+    counter-reset: level6 0;
+}
+
+
+h1.chapter:before
+{
+    counter-increment: level1;
+    content: counter(level1) " ";
+}
+h2.chapter:before
+{
+    counter-increment: level2;
+    content: counter(level1) "." counter(level2) " ";
+}
+h3.chapter:before
+{
+    counter-increment: level3;
+    content: counter(level1) "." counter(level2) "." counter(level3) " ";
+}
+h4.chapter:before
+{
+    counter-increment: level4;
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) " ";
+}
+h5.chapter:before
+{
+    counter-increment: level5;
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) "." counter(level5) " ";
+}
+h6.chapter:before
+{
+    counter-increment: level6;
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) "." counter(level5) "." counter(level6) " ";
+}
+
+h1.annex
+{
+    counter-reset: level2 0;
+}
+h2.annex
+{
+    counter-reset: level3 0;
+}
+h3.annex
+{
+    counter-reset: level4 0;
+}
+h1.annex:before
+{
+    counter-increment: annex;
+    content: "附录" counter(annex, upper-latin) " ";
+}
+h2.annex:before
+{
+    counter-increment: level2;
+    content: counter(annex, upper-latin) "." counter(level2) " ";
+}
+h3.annex:before
+{
+    counter-increment: level3;
+    content: counter(annex, upper-latin) "." counter(level2) "." counter(level3) " ";
+}
+ol
+{
+    list-style-type: decimal;
+}
+
+ol ol
+{
+    margin-top:0em;
+    margin-bottom:0em;
+    margin-left:0em;
+    margin-right:0em;
+    list-style-type: lower-latin;
+}
+ol ol ol
+{
+    list-style-type: lower-roman;
+}
+ol ol ol ol
+{
+    list-style-type: decimal;
+}
+ol ol ol ol ol
+{
+    list-style-type: lower-latin;
+}
+ol ol ol ol ol ol
+{
+    list-style-type: lower-roman;
+}
+
+ol ul
+{
+    margin-top:0em;
+    margin-bottom:0em;
+    margin-left:0em;
+    margin-right:0em;
+}
+ul ol
+{
+    margin-top:0em;
+    margin-bottom:0em;
+    margin-left:0em;
+    margin-right:0em;
+}
+#title {
+    text-align:center;
+}
+
+
+.toc li {
+    list-style-type: none;
+}
+html 
+{
+    height:100%;
+    width:100%;
+}
+body 
+{
+    display:-webkit-box;
+    display:-moz-box;
+    display:box;
+    -moz-box-orient : vertical; 
+    -webkit-box-orient : vertical; 
+    box-orient : vertical;
+    height:100%;
+    width: 100%;
+}
+
+
+
+.toc {
+    counter-reset: toclevel1 0 tocannex 0;
+    padding-left:0;
+    overflow:visible;
+    width:auto;
+    white-space:nowrap;
+
+}
+
+.toc a,a:link,a:visited{
+    color:#005A9C;
+    font-family:"Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft YaHei",sans-serif; 
+}
+.toc ol,li
+{
+    overflow:visible;
+    width:auto;
+}
+
+.toc>li>a.chapter
+{
+    counter-reset: toclevel2 0;
+}
+.toc>li>ol>li>a.chapter
+{
+    counter-reset: toclevel3 0;
+}
+.toc>li>ol>li>ol>li>a.chapter
+{
+    counter-reset: toclevel4 0;
+}
+.toc>li>ol>li>ol>li>ol>li>a.chapter
+{
+    counter-reset: toclevel5 0;
+}
+.toc>li>ol>li>ol>li>ol>li>ol>li>a.chapter
+{
+    counter-reset: toclevel6 0;
+}
+
+
+.toc>li>a.annex
+{
+    counter-reset: toclevel2 0;
+}
+.toc>li>ol>li>a.annex
+{
+    counter-reset: toclevel3 0;
+}
+.toc>li>ol>li>ol>li>a.annex
+{
+    counter-reset: toclevel4 0;
+}
+
+
+.toc a.chapter:before
+{
+    counter-increment: toclevel1;
+    content: counter(toclevel1) " ";
+}
+.toc ol a.chapter:before
+{
+    counter-increment: toclevel2;
+    content: counter(toclevel1) "." counter(toclevel2) " ";
+}
+.toc ol ol a.chapter:before
+{
+    counter-increment: toclevel3;
+    content: counter(toclevel1) "." counter(toclevel2) "." counter(toclevel3) " ";
+}
+.toc ol ol ol a.chapter:before
+{
+    counter-increment: toclevel4;
+    content: counter(toclevel1) "." counter(toclevel2) "." counter(toclevel3) "." counter(toclevel4) " ";
+}
+.toc ol ol ol ol a.chapter:before
+{
+    counter-increment: toclevel5;
+    content: counter(toclevel1) "." counter(toclevel2) "." counter(toclevel3) "." counter(toclevel4) "." counter(toclevel5) " ";
+}
+.toc ol ol ol ol ol a.chapter:before
+{
+    counter-increment: toclevel6;
+    content: counter(toclevel1) "." counter(toclevel2) "." counter(toclevel3) "." counter(toclevel4) "." counter(toclevel5) "." counter(toclevel6) " ";
+}
+
+
+.toc a.annex:before
+{
+    counter-increment: tocannex;
+    content: "附录" counter(tocannex, upper-latin) " ";
+}
+.toc ol a.annex:before
+{
+    counter-increment: toclevel2;
+    content: counter(tocannex, upper-latin) "." counter(toclevel2) " ";
+}
+.toc ol ol a.annex:before
+{
+    counter-increment: toclevel3;
+    content: counter(tocannex, upper-latin) "." counter(toclevel2) "." counter(toclevel3) " ";
+}
+.toc a {
+    cursor:pointer;
+}
+#title {
+    text-align:center;
+}
+header 
+{
+    width:100%;
+}
+nav 
+{
+    z-index:3;
+    line-height:28px;
+    background:black;
+    color:white;
+    font-family:"Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft YaHei",sans-serif;
+
+}
+
+nav :link,:visited 
+{
+    color:Yellow;
+    margin:0px 5px 0px 5px;
+    text-decoration:none;
+
+}
+nav :link:hover
+{
+    text-decoration:underline;
+}
+
+#userAvatar 
+{
+    margin:5px 5px 5px 5px;
+}
+
+nav * 
+{
+    vertical-align:middle;
+}
+
+.mask 
+{
+    z-index:5;
+    background:rgba(0,0,0,.3);
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    display:-webkit-box;
+    display:-moz-box;
+    display:box;
+    -moz-box-orient : horizontal; 
+    -webkit-box-orient : horizontal; 
+    box-orient : horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;;
+}
+
+.popup_content
+{
+    display:inline-block;
+    background:white;
+    border:solid 1px grey;
+    padding:1em 1em 1em 1em;
+}
+
+.popup_content>*
+{
+    display:block;
+}
+
+.popup_content>*
+{
+    display:block;
+    border:solid 1px grey;
+    box-sizing:border-box;
+    width:500px;
+    margin:1em 1em 1em 1em;
+    
+}
+
+.popup_content>textarea
+{
+    height:350px;
+}
+
+
+
+aside
+{
+    width:400px;
+    height:100%;
+    overflow:scroll;
+    margin: 0 0 0 0;
+    background:white;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;  
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:2;
+    margin:0 0 0 0;
+    position:fixed;
+}
+#main
+{
+    width:100%;
+    height:100%;
+    overflow-y:scroll;    
+    overflow-x:hidden;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    border-left:solid transparent 400px;
+    border-top:solid transparent 32px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    margin:0 0 0 0;
+}
+#content {
+    padding:1em 1em 1em 1em;
+}
+
+nav 
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:32px;
+}
+/*
+
+@media only screen and (max-width: 1200px) {
+    aside {
+        position:fixed;
+        height:0;
+    }
+    article {
+        max-width:800px;
+        height:auto;
+        overflow:visible;
+    }
+    #main {
+        border-left:solid 0px;
+    }
+}*/
