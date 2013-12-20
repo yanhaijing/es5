@@ -485,3 +485,13 @@ nav
         border-left:solid 0px;
     }
 }*/
+
+#info {
+	padding: 5px;
+	position: absolute;
+	position: fixed;
+	bottom:0;
+	right:0;
+	background: #ddd;
+	font-weight:bold
+}
