@@ -495,3 +495,6 @@ nav
 	background: #ddd;
 	font-weight:bold
 }
+.jiathis_style table, .jiathis_style td{
+    border:0;
+}
