@@ -491,9 +491,18 @@ nav
 	position: absolute;
 	position: fixed;
 	bottom:0;
-	right:0;
+	right:-170px;
 	background: #ddd;
-	font-weight:bold
+	font-weight:bold;
+    opacity: 0.5;
+    transition:all 0.5s linear;
+}
+#info:hover{
+    opacity:1;
+    right:0;
+}
+#info a{
+    margin:0 5px;
 }
 .jiathis_style table, .jiathis_style td{
     border:0;
