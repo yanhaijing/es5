@@ -6,9 +6,11 @@
 		<meta name="keywords" content="ecmascript, ecmascript3.1, ecmascript5, es, es3, es5, javascript, javascript规范, 规范, yanhaijing, 颜海镜, web前端">
 		<meta name="description" content="本规范 是ECMAScript规范 5.1版本的中文版，另附有ecmascript3中英文版和其他es5英文版，javascript 高手的必读物和必备手册">
 		<title>ECMAScript5.1中文版 + ECMAScript3（合集）</title>
-		<link href="./ECMAScript5.1中文版_files/basic.css" rel="styleSheet" type="text/css">
-		<style type="text/css"></style>
-		<script src="baidu.js"></script>
+		<link href="css/basic.css" rel="styleSheet">
+		<script src="js/baidu.js"></script>
+		<!--[if lt IE 9]>
+		  <script src="http://yanhaijing.com/assets/js/html5.js"></script>
+		<![endif]-->
 	</head>
 	<body cz-shortcut-listen="true">
 		<div id="info">
@@ -149,7 +151,7 @@
 					</ol>
 				</li>
 				<li>
-					<a href="./ECMAScript5.1中文版_files/ECMAScript5.1中文版.htm" class="chapter">记法约定</a>
+					<a href="#41" class="chapter">记法约定</a>
 					<ol>
 						<li>
 							<a href="#42" class="chapter">语法和词法的文法</a>
@@ -5487,7 +5489,7 @@
 			一旦字符串数值常量的数学值被精确地确定，接下来就会被舍入为数值类型的一个值。如果数学值是 0，那么舍入值为 +0，除非字符串数值常量中第一个非空白字符是 ‘-’
 			— 在这种情况下，舍入值为 -0。否则，舍入值必须是数学值的 数字值 ，除非该常量包括一个「串无符号十进制常量」，且此常量多于 20 位 重要数字 — 在这种情况下，此数字的值是下面两种之一：一是将其
 			20 位之后的每个重要数字用 0 替换，产生此字符串解析出的数学值的数字值；二是将其 20 位之后的每个有效数字用 0 替换，并在第 20 位重要数字加一，产生此字符串解析出的数学值的数字值
-			<img border="0" alt="" src="./ECMAScript5.1中文版_files/Question.png" width="22" height="22">。判断一个数字是否为 重要数字 ，首先它不能是「指数部分」的一部分，且
+			<img border="0" alt="" src="img/Question.png" width="22" height="22">。判断一个数字是否为 重要数字 ，首先它不能是「指数部分」的一部分，且
 		</p>
 		<ul id="block481">
 			<li>
@@ -5932,7 +5934,7 @@
 			内部严格比较操作 SameValue(<var>x</var>,<var>y</var>)，<var>x</var>
 			和
 			<var> y</var>
-			为 ECMAScript 语言中的值，需要产出 true 或 false<img border="0" alt="" src="./ECMAScript5.1中文版_files/Note.png" width="16" height="16">。比较过程如下：
+			为 ECMAScript 语言中的值，需要产出 true 或 false<img border="0" alt="" src="img/Note.png" width="16" height="16">。比较过程如下：
 		</p>
 		<ol id="block507">
 			<li>
@@ -22844,6 +22846,6 @@
 		var jiathis_config = {data_track_clickback:'true'};
 		</script>
 		<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r2.gif&amp;uid=1394090280134564" charset="utf-8"></script>
-		<!-- JiaThis Button END -->	
+		<!-- JiaThis Button END -->
 	</body>
 </html>
