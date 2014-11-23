@@ -272,6 +272,11 @@ ul ol {
     cursor:pointer;
 }
 /* 大屏幕 */
+@media (min-width: 1700px) {
+    .content.hasNav{
+        margin: auto;
+    }
+}
 @media (min-width: 1300px) {
     .content.hasNav{
         margin-left: 400px;

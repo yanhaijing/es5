@@ -10,6 +10,7 @@
 			$nav = $('#nav'),
 			lis = $nav.find('.toc a').parent(),
 			i;
+		var storage = new window.Storage();
 		function scroll(i) {
 			var $cur = lis[i];
 			var scrollTop = 0;
@@ -68,27 +69,38 @@
 			
 			return 1;
 		}
+		function switchNav(status) {
+			if (!status) {
+				$nav.css('left', '-400px');
+				$('#switch').css('left', 0).html('目录');
+				$('.content').removeClass('hasNav');
+				return false;
+			}
+			$nav.css('left', '0');
+			var width = $nav.width();
+			$('#switch').css('left', width).html('收起');
+			$('.content').addClass('hasNav');
+			
+			return true;
+		}
+
 		for(i = 0; i < len; i++) {
 			offsets[i] = acs.eq(i).offset().top;
 		}
 
+		var isShow = $(window).width() >= 1300;
+		var hash = storage.load('es5/tag');
+		location.hash = hash;
+		switchNav(isShow);
+
 		$window.on('scroll', update);	
-		var isShow = false;
+		
  		$('#switch').on('click', function (e) {
-			var $this = $(this);
-			var $content = $('.content');
-			if (isShow) {
-				isShow = false;
-				$nav.css('left', '-400px');
-				$this.css('left', 0).html('目录');
-				$content.removeClass('hasNav');
-			} else {
-				$nav.css('left', '0');
-				var width = $nav.width();
-				$this.css('left', width).html('收起');
-				$content.addClass('hasNav');
-				isShow = true;
-			}
+			isShow = switchNav(!isShow);
 		});
+
+	    $(window).unload(function(e){
+	        storage.save('es5/tag', acs.eq(cur).attr('id'));
+	    });
 	});
 }(jQuery));
