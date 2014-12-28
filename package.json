@@ -1,0 +1,9 @@
+{
+  "name": "es5",
+  "description": "本规范是 ECMAScript 规范 5.1版本的中文版，意在优化阅读体验，为阅读而生，另附有ecmascript3中英文版和其他es5英文版，及 ES6，javascript 高手的必读物和必备手册",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-manifest": "~0.4.0"
+  }
+}
