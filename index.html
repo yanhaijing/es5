@@ -5789,10 +5789,10 @@
 								如果参数是 false，那么结果为 "false"。</td>
 							</tr>
 							<tr>
-								<td>Number</td><td>结果等于输入的参数（不转换）。</td>
+								<td>String</td><td>结果等于输入的参数（不转换）。</td>
 							</tr>
 							<tr>
-								<td>String</td><td>参见下文的文法和注释。</td>
+								<td>Number</td><td>参见下文的文法和注释。</td>
 							</tr>
 							<tr>
 								<td>Object</td><td>应用下列步骤：
@@ -5983,16 +5983,16 @@
 								<td>Undefined</td><td>抛出 TypeError 异常。</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;抛出 TypeError 异常。</td>
+								<td>Null</td><td>抛出 TypeError 异常。</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>创建一个新的Boolean对象，其 [[PrimitiveValue]]属性被设为该布尔值的值。</td>
 							</tr>
 							<tr>
-								<td>Number</td><td>创建一个新的Number对象，其[[PrimitiveValue]]属性被设为该布尔值的值。</td>
+								<td>Number</td><td>创建一个新的Number对象，其[[PrimitiveValue]]属性被设为该数字值。</td>
 							</tr>
 							<tr>
-								<td>String</td><td>创建一个新的String对象，其 [[PrimitiveValue]] 属性被设为该布尔值的值。</td>
+								<td>String</td><td>创建一个新的String对象，其 [[PrimitiveValue]] 属性被设为该字符串值。</td>
 							</tr>
 							<tr>
 								<td>Object</td><td>结果是输入的参数（不转换）。</td>
@@ -6016,7 +6016,7 @@
 								<td>Undefined</td><td>抛出一个 TypeError 异常</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;抛出 TypeError 异常。</td>
+								<td>Null</td><td>抛出一个 TypeError 异常。</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>返回</td>
@@ -6049,7 +6049,7 @@
 								<td>Undefined</td><td>返回false</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;返回false</td>
+								<td>Null</td><td>返回false</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>返回false</td>
