@@ -4137,10 +4137,10 @@
 								<td>[[Set]]</td><td>Object 或 Undefined</td><td>如果该值为一个 Object 对象，那么它必须是一个函数对象。每次有对该属性进行 set 访问时，该函数的内部方法 [[Call]]（8.6.2）会被一个参数列表调用，这个参数列表包含分配的值作为唯一的参数。property 的内部方法 [[Set]] 产生的影响可能会，但不是必须的，对随后的 property 内部方法 [[Get]] 的调用返回结果产生影响。</td>
 							</tr>
 							<tr>
-								<td>[[Enumerable]]</td><td>/&gt;Boolean</td><td>如果为 true，则该属性可被 for-in 枚举出来（参见 12.6.4），否则，该属性不可枚举。</td>
+								<td>[[Enumerable]]</td><td>Boolean</td><td>如果为 true，则该属性可被 for-in 枚举出来（参见 12.6.4），否则，该属性不可枚举。</td>
 							</tr>
 							<tr>
-								<td>[[Configurable]]</td><td>/&gt;Boolean</td><td>如果为 false，试图删除该属性，改变该属性为访问器属性，或改变它的 attributes（和 [[Value]] 不同），都会失败。</td>
+								<td>[[Configurable]]</td><td>Boolean</td><td>如果为 false，试图删除该属性，改变该属性为访问器属性，或改变它的 attributes（和 [[Value]] 不同），都会失败。</td>
 							</tr>
 						</tbody>
 					</table>
@@ -5121,8 +5121,8 @@
 					</li>
 				</ol>
 				<p id="block447">
-					当不用 hint 调用 O 的 [[DefaultValue]] 内部方法，O 是 Date 对象的情况下仿佛 hint 是字符串一样解释它的行为，除此之外仿佛
-					hint 是数字一样解释它的行为。
+					当不用 hint 调用 O 的 [[DefaultValue]] 内部方法时，除非O 是 Date 对象的情况下把 hint 当作字符串一样解释它的行为，除此之外把
+					hint 当作数字一样解释它的行为。
 				</p>
 				<p id="block448">
 					上面说明的 [[DefaultValue]] 在原生对象中只能返回原始值。如果一个宿主对象实现了它自身的 [[DefaultValue]] 内部方法，那么必须确保其
@@ -5306,7 +5306,7 @@
 								<td>String</td><td>结果等于输入的参数（不转换）。</td>
 							</tr>
 							<tr>
-								<td>Object</td><td>返回该对象的默认值。（调用该对象的内部方法[[DefaultValue]]一樣）。</td>
+								<td>Object</td><td>返回该对象的默认值。对象的默认值由把<var>期望类型</var>传入作为hint参数调用对象的内部方法[[DefaultValue]]得到，[[DefaultValue]]这个内部方法由8.12.8定义</td>
 							</tr>
 						</tbody>
 					</table>
@@ -5789,28 +5789,24 @@
 								如果参数是 false，那么结果为 "false"。</td>
 							</tr>
 							<tr>
-								<td>Number</td><td>结果等于输入的参数（不转换）。</td>
+								<td>String</td><td>结果等于输入的参数（不转换）。</td>
 							</tr>
 							<tr>
-								<td>String</td><td>参见下文的文法和注释。</td>
+								<td>Number</td><td>参见下文的文法和注释。</td>
 							</tr>
 							<tr>
 								<td>Object</td><td>应用下列步骤：
 								<ol>
 									<li>
-										调用
+										设原始值为调用
 										<code>
 											ToPrimitive
 										</code>
-										(<var> 输入参数 </var>, 暗示 <var>字符串类型</var>)。
+										(<var> 输入参数 </var>, 暗示 <var>字符串类型</var>)的结果。
 									</li>
 
 									<li>
-										调用 ToString(Result(1))。
-									</li>
-
-									<li>
-										返回 Result(2)。
+										返回ToString(原始值)。
 									</li>
 								</ol></td>
 							</tr>
@@ -5983,16 +5979,16 @@
 								<td>Undefined</td><td>抛出 TypeError 异常。</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;抛出 TypeError 异常。</td>
+								<td>Null</td><td>抛出 TypeError 异常。</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>创建一个新的Boolean对象，其 [[PrimitiveValue]]属性被设为该布尔值的值。</td>
 							</tr>
 							<tr>
-								<td>Number</td><td>创建一个新的Number对象，其[[PrimitiveValue]]属性被设为该布尔值的值。</td>
+								<td>Number</td><td>创建一个新的Number对象，其[[PrimitiveValue]]属性被设为该数字值。</td>
 							</tr>
 							<tr>
-								<td>String</td><td>创建一个新的String对象，其 [[PrimitiveValue]] 属性被设为该布尔值的值。</td>
+								<td>String</td><td>创建一个新的String对象，其 [[PrimitiveValue]] 属性被设为该字符串值。</td>
 							</tr>
 							<tr>
 								<td>Object</td><td>结果是输入的参数（不转换）。</td>
@@ -6016,7 +6012,7 @@
 								<td>Undefined</td><td>抛出一个 TypeError 异常</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;抛出 TypeError 异常。</td>
+								<td>Null</td><td>抛出一个 TypeError 异常。</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>返回</td>
@@ -6049,7 +6045,7 @@
 								<td>Undefined</td><td>返回false</td>
 							</tr>
 							<tr>
-								<td>Null</td><td>&gt;返回false</td>
+								<td>Null</td><td>返回false</td>
 							</tr>
 							<tr>
 								<td>Boolean</td><td>返回false</td>
@@ -6646,7 +6642,7 @@
 								<td>变量环境</td><td>指定一个词法环境对象，其环境数据用于保存由该执行环境内的代码通过 变量表达式 和 函数表达式 创建的绑定。</td>
 							</tr>
 							<tr>
-								<td>&gt;This 绑定</td><td>指定该执行环境内的 ECMA 脚本代码中 this 关键字所关联的值。</td>
+								<td>This绑定</td><td>指定该执行环境内的 ECMA 脚本代码中 this 关键字所关联的值。</td>
 							</tr>
 						</tbody>
 					</table>
